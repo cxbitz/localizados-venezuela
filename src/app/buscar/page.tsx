@@ -7,6 +7,7 @@ import { LocalizadoCard } from "@/components/LocalizadoCard";
 import { Pagination } from "@/components/Pagination";
 import { SearchForm } from "@/components/SearchForm";
 import { SearchResultsTracker } from "@/components/SearchResultsTracker";
+import { SavedSearchSubscribeForm } from "@/components/SavedSearchSubscribeForm";
 import { ShareButtons } from "@/components/ShareButtons";
 import {
   coerceCondicion,
@@ -133,6 +134,7 @@ export default async function BuscarPage({
               />
             </div>
           )}
+          {q && <SavedSearchSubscribeForm initialQuery={q} />}
         </>
       )}
 
@@ -142,8 +144,8 @@ export default async function BuscarPage({
         ))}
         {hasQuery && result.data.length === 0 && (
           <p className="rounded-lg border border-dashed border-slate-300 p-8 text-center text-slate-500">
-            No hay resultados publicados. Si la persona está <strong>localizada</strong>
-            , puedes{" "}
+            No hay resultados publicados. Si tienes informacion verificada de una
+            persona localizada, puedes{" "}
             <a href="/contribuir" className="text-brand-600 underline">
               contribuir
             </a>

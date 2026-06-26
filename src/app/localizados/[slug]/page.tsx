@@ -2,9 +2,10 @@ export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { GoBackButton } from "@/components/GoBackButton";
 import { LugarLink } from "@/components/LugarLink";
 import { ShareButtons } from "@/components/ShareButtons";
-import { GoBackButton } from "@/components/GoBackButton";
+import { SubscribeToLocalizadoForm } from "@/components/SubscribeToLocalizadoForm";
 import { getLocalizadoBySlug } from "@/lib/queries";
 import { absoluteUrl, shareLocalizado } from "@/lib/share";
 
@@ -107,6 +108,11 @@ export default async function LocalizadoPage({ params }: Props) {
           </a>
         )}
       </section>
+
+      <SubscribeToLocalizadoForm
+        slug={localizado.slug}
+        nombre={localizado.nombreCompleto}
+      />
 
       <ShareButtons
         variant="sticky"
